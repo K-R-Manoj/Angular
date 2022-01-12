@@ -1,0 +1,45 @@
+<h1 [ngStyle]="{display:'flex', justifyContent:'center'}">Update Note</h1>
+
+<form class="example-form">
+        <p>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="{{title}}">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="Work">Work</mat-option>
+                  <mat-option value="Personal">Personal</mat-option>
+                  <mat-option value="Home">Home</mat-option>
+                  <mat-option value="Others">Others</mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." value="{{desc}}"></textarea>
+            </mat-form-field>
+           
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Select Color
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>{{color}}</p>
+                    
+                </mat-expansion-panel>
+            </mat-accordion>
+        </p>  
+   
+        <div class="example-button-row">
+            <div class="example-flex-container">
+                <button mat-raised-button color="primary">Update</button>
+                <button mat-raised-button color="warn">Cancel</button> 
+                <button mat-raised-button color="accent">Clear</button>
+            </div>
+        </div>
+</form>

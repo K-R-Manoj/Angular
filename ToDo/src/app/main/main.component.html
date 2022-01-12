@@ -1,0 +1,56 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer mode="side" autosize class="example-sidenav">
+            <mat-list class="lists">
+            <mat-list-item (click)="onSelect('NoteList')"><a>Notes</a></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item (click)="onSelect('TrashNotes')"><a>Trash</a></mat-list-item>
+            <mat-divider></mat-divider>         
+            </mat-list>
+        </mat-drawer>
+        <mat-drawer-content>
+      
+            <div>
+                <mat-toolbar color="primary">
+                    <mat-toolbar-row>
+                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                        <span>My App</span>
+                        <span class="example-spacer"></span>
+                        <div class="serach">
+
+                            <mat-form-field class="example-form-field" appearance="fill">
+                                <input matInput type="text" placeholder="Search" [(ngModel)]="value">
+                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            
+                        </div>
+
+                        <div class="menu"> 
+
+                            <button mat-button [matMenuTriggerFor]="belowMenu">Sort<mat-icon>keyboard_arrow_down</mat-icon></button>
+                            <mat-menu #belowMenu="matMenu" yPosition="below">
+                                <button mat-menu-item>Title(ASC/Dsc)</button>
+                                <button mat-menu-item>Time (ASC/DSC)</button>
+                            </mat-menu>
+                            
+                        </div>
+
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </div>
+
+
+                <div class="body">
+                 <app-note-list *ngIf="selectedSideValue ==='NoteList'"></app-note-list>
+                 <app-trash-note-list *ngIf="selectedSideValue ==='TrashNotes'"></app-trash-note-list>
+                </div> 
+
+
+
+        </mat-drawer-content>
+</mat-drawer-container>
+
+          

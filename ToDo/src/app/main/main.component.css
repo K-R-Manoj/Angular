@@ -1,0 +1,32 @@
+.lists mat-list-item
+{
+    cursor: pointer;
+}
+
+.example-sidenav {
+    background-color: #3f51b5;
+    width: 10%;
+
+}
+.example-sidenav a
+{
+    color: white;
+    font-size:  x-large;
+    text-decoration: none;
+    margin-left: 20%;
+
+}
+.example-sidenav .lists{
+
+   margin-top: 33%;
+
+}
+.body
+{
+    height: 89vh;
+}
+.menu
+{
+    float: right    ;
+}
+
