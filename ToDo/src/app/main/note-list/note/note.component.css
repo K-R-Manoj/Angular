@@ -1,4 +1,20 @@
 .card
 {
-    margin: 2% ;
+    margin: 3% ;
+}
+
+.icons
+{
+    display: flex;
+    justify-content:end;
+    opacity: 0;
+}
+.icons mat-icon
+{
+    cursor: pointer;
+}
+
+.note:hover .icons
+{
+    opacity: 1;
 }

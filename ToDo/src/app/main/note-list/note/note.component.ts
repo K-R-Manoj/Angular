@@ -1,7 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+
+import { DialogboxComponent } from 'src/app/Common/dialogbox/dialogbox.component';
 import { Note } from 'src/app/Models/NoteModel/note';
-import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { NoteService } from 'src/app/Services/note.service';
+
+
 
 @Component({
   selector: 'app-note',
@@ -10,19 +15,26 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 })
 export class NoteComponent implements OnInit {
 
-  @Input() note : Note |undefined;
+  @Input() note : any;
 
-
-  constructor(public dialog: MatDialog) { }
+  b:Date|undefined
+  constructor(public dialog: MatDialog, public noteService:NoteService) { }
 
   ngOnInit(): void {
+      // console.log("this is note",this.note);
+
+      console.log("this is note",this.note.createdAt); 
+      
+  }
+  onUpdate()
+  { 
+   this.dialog.open(DialogboxComponent,{data:{togglevalue:'EDIT', notevalue:this.note}});  
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(EditDialogComponent,{data:this.note});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  onDelete()
+  {
+    this.noteService.deleteNote(this.note)
   }
+ 
+ 
 }

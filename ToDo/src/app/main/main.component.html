@@ -1,10 +1,10 @@
-<mat-drawer-container class="example-container">
+<!-- <mat-drawer-container class="example-container">
     <mat-drawer #drawer mode="side" autosize class="example-sidenav">
             <mat-list class="lists">
-            <mat-list-item (click)="onSelect('NoteList')"><a>Notes</a></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item (click)="onSelect('TrashNotes')"><a>Trash</a></mat-list-item>
-            <mat-divider></mat-divider>         
+                <mat-list-item routerLink="/Notes" routerLinkActive="active"><a>Notes</a></mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="/Trash" routerLinkActive="active"><a>Trash</a></mat-list-item>
+                <mat-divider></mat-divider>         
             </mat-list>
         </mat-drawer>
         <mat-drawer-content>
@@ -17,40 +17,112 @@
                         </button>
                         <span>My App</span>
                         <span class="example-spacer"></span>
-                        <div class="serach">
 
-                            <mat-form-field class="example-form-field" appearance="fill">
-                                <input matInput type="text" placeholder="Search" [(ngModel)]="value">
-                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-                                    <mat-icon>close</mat-icon>
-                                </button>
-                            </mat-form-field>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <input matInput placeholder="Search" (keyup)="this.noteservice.search(filtredStatus)" [(ngModel)]="filtredStatus">
+                            <button *ngIf="filtredStatus" matSuffix mat-icon-button aria-label="Clear" (click)="filtredStatus=''">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                        <div class="buttons">
+                             
+
                             
-                        </div>
-
-                        <div class="menu"> 
-
-                            <button mat-button [matMenuTriggerFor]="belowMenu">Sort<mat-icon>keyboard_arrow_down</mat-icon></button>
-                            <mat-menu #belowMenu="matMenu" yPosition="below">
-                                <button mat-menu-item>Title(ASC/Dsc)</button>
-                                <button mat-menu-item>Time (ASC/DSC)</button>
-                            </mat-menu>
                             
-                        </div>
+                            <div class="Refresh">
 
+                               
+                                    <button mat-button [matMenuTriggerFor]="belowMenu">Sort<mat-icon>keyboard_arrow_down</mat-icon></button>
+                                    <mat-menu #belowMenu="matMenu" yPosition="below">
+                                        <button mat-menu-item (click)="sortTitle()">Title(ASC/Dsc)</button>
+                                        <button mat-menu-item (click)="sortTime()">Time (ASC/DSC)</button>
+                                    </mat-menu> 
+                            </div>
+                        </div>
+                            
                     </mat-toolbar-row>
                 </mat-toolbar>
+
             </div>
-
-
                 <div class="body">
-                 <app-note-list *ngIf="selectedSideValue ==='NoteList'"></app-note-list>
-                 <app-trash-note-list *ngIf="selectedSideValue ==='TrashNotes'"></app-trash-note-list>
+                 <router-outlet></router-outlet>
                 </div> 
-
-
-
         </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->
 
           
+
+<!-- Responsive toolbar and navbar -->
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+            <mat-toolbar class="sidenavbarres">   
+                <span>Menu</span>
+            </mat-toolbar>
+            <mat-nav-list>
+                <a mat-list-item routerLink="/Notes" routerLinkActive="active">Notes</a>
+                <a mat-list-item routerLink="/Trash" routerLinkActive="active">Trash</a>
+            </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar  color="primary">
+          <mat-toolbar-row>
+
+                <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+            
+                <div class="logo">
+                    <img src="../../assets/Images/TD.png" alt="#ToDo's">
+                </div>
+                <span>TODO's</span>
+                        <!-- <div class="search">  
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <input matInput placeholder="Search" (keyup)="this.noteservice.search(filtredStatus)" [(ngModel)]="filtredStatus">
+                            </mat-form-field>
+                        </div> -->
+                
+                    <div class="sort">
+                        <!-- <button mat-button [matMenuTriggerFor]="belowMenu" >Sort<mat-icon>keyboard_arrow_down</mat-icon></button>
+                            <mat-menu #belowMenu="matMenu" yPosition="below">
+                                <button mat-menu-item (click)="sortTitle()">Title(ASC/Dsc)</button>
+                                <button mat-menu-item (click)="sortTime()">Time (ASC/DSC)</button>    
+                            </mat-menu> -->
+                            
+                            
+                            <button mat-button [matMenuTriggerFor]="animals">Sort Notes<mat-icon>keyboard_arrow_down</mat-icon></button>
+                            <mat-menu #animals="matMenu">
+                                <button mat-menu-item [matMenuTriggerFor]="Title">Title</button>
+                                <button mat-menu-item [matMenuTriggerFor]="TimeOrder">Time</button>
+                            </mat-menu>
+                            
+                            <mat-menu #Title="matMenu">
+                                <button mat-menu-item (click)="sortTitle('A-Z')">A-Z</button>
+                                <button mat-menu-item (click)="sortTitle('Z-A')">Z-A</button>
+                            </mat-menu>
+                            
+                            <mat-menu #TimeOrder="matMenu">
+                                <button mat-menu-item (click)="sortTime('Oldest')">Oldest</button>
+                                <button mat-menu-item (click)="sortTime('Newest')">Latest</button>
+                            </mat-menu>
+                        </div>
+                        
+                 
+            </mat-toolbar-row>
+      </mat-toolbar>
+        <div class="something">
+            <input type="text" placeholder="Search Notes" (keyup)="this.noteservice.search(filtredStatus)" [(ngModel)]="filtredStatus">
+        </div>
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

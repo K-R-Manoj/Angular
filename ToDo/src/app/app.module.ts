@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,10 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { NoteListComponent } from './main/note-list/note-list.component';
 import { TrashNoteListComponent } from './main/trash-note-list/trash-note-list.component';
-import { FormComponent } from './main/note-list/form/form.component';
 import { NoteComponent } from './main/note-list/note/note.component';
-import { EditDialogComponent } from './main/note-list/note/edit-dialog/edit-dialog.component';
-import { AddDialogComponent } from './main/note-list/form/add-dialog/add-dialog.component';
 import { TrashNoteComponent } from './main/trash-note-list/trash-note/trash-note.component';
 
 
@@ -30,6 +28,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSortModule} from '@angular/material/sort';
+import { DialogboxComponent } from './Common/dialogbox/dialogbox.component';
+import { SearchPipe } from './Common/Pipes/search.pipe';
+import { SortPipe } from './Common/Pipes/sort.pipe';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+
 
 
 @NgModule({
@@ -38,17 +44,18 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MainComponent,
     NoteListComponent,
     TrashNoteListComponent,
-    FormComponent,
     NoteComponent,
-    EditDialogComponent,
-    AddDialogComponent,
-    TrashNoteComponent
+    TrashNoteComponent,
+    DialogboxComponent,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
 
     MatButtonModule,
@@ -64,7 +71,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSelectModule,
     MatSidenavModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatRadioModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

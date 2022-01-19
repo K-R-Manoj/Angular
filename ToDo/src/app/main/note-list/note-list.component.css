@@ -1,7 +1,6 @@
-.corner
+.form
 {
-  
-    position: absolute;
-    bottom: 1%;
-    right: 2%;
+   position: fixed;
+   right: 2%;
+   bottom: 2%;
 }

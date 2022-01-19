@@ -7,13 +7,15 @@
   .example-full-width {
     width: 100%;
   }
-  
-  td {
-    padding-right: 8px;
-  }
 
   .example-flex-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+  .headding
+  {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
   }

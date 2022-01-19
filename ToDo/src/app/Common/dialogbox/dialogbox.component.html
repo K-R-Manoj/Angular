@@ -1,0 +1,86 @@
+<ng-template #addnoteform [ngIf]="toggle === 'ADD'">
+    <span style="float: right ; cursor: pointer;" [mat-dialog-close]>X</span>
+    <h2 [ngClass]="'headding'">Add Note</h2>
+    <form class="example-form"  (ngSubmit)="onAddNoteSubmit()" [formGroup]="AddNotesForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Ex. Pizza" formControlName="Title" >
+        </mat-form-field>
+        
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Tags</mat-label>
+            <mat-select formControlName="Tag">
+              <mat-option *ngFor="let tag of Tags" [value]="tag.value">
+                {{tag.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+          
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Description</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..." #DescCount formControlName="Description" (keyup)="charCount()"></textarea>
+            </mat-form-field>
+            <p>{{count}} character of 250 characters</p>
+            
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Select your color</mat-label>
+                <mat-select formControlName="Color">
+                  <mat-option *ngFor="let color of Colors" [value]="color.value">
+                    {{color.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+        <div class="example-flex-container">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!this.AddNotesForm.get('Title'&&'Tag'&&'Description'&&'Color').valid"  [mat-dialog-close]   >Add</button>
+            <button mat-raised-button color="accent" type="reset" (click)="this.AddNotesForm.reset()">Clear</button>
+        </div>
+    </form>
+</ng-template>
+
+
+    
+<ng-template #editnoteform [ngIf]="toggle==='EDIT'">
+    <span style="float: right ; cursor: pointer;" [mat-dialog-close]>X</span>
+    <h2 [ngClass]="'headding'">Edit/Update Form</h2>
+    <form class="example-form" #E="ngForm" (ngSubmit)="onUpdateNoteSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Ex. Pizza" [(ngModel)]="title" name="Title">
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Tags</mat-label>
+            <mat-select name="Tag" [(ngModel)]="tag" required>    
+              <mat-option *ngFor="let tag of Tags" [value]="tag.value">
+                {{tag.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Description</mat-label>
+              <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="desc" name="Description"></textarea>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Tags</mat-label>
+                <mat-select name="Color" [(ngModel)]="color" required>    
+                  <mat-option *ngFor="let color of Colors" [value]="color.value">
+                    {{color.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        
+        <div class="example-flex-container">
+            <button mat-raised-button color="primary" type="submit" [mat-dialog-close]>Update</button>
+            <!-- <button mat-raised-button color="warn" type="reset" [mat-dialog-close] (click)="onDelete()">Delete</button> -->
+            <button mat-raised-button color="accent" type="reset" (click)="E.reset()">Clear</button>
+        </div>
+    </form>
+</ng-template>
+
+

@@ -1,2 +1,22 @@
-<app-note *ngFor="let note of notes" [note]="note"></app-note>
-<app-form [ngClass]="'corner'"></app-form>
+<!-- <app-note *ngFor="let note of Notes[0] | search:this.noteService.serachstring | sort:this.noteService.sortItem"  [note]="note"></app-note> -->
+
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%"  *ngFor="let note of Notes[0] | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype"> 
+        <!-- content -->
+        <app-note [note]="note"></app-note> 
+         </div>
+    </div>
+</div>
+
+<div class="form" >
+    <div class="example-button-row">
+        <div class="example-flex-container">
+            <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="onAddNote()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+  </div>
+</div>
