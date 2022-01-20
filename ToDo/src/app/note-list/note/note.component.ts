@@ -22,9 +22,9 @@ export class NoteComponent implements OnInit {
 
   ngOnInit(): void {
       // console.log("this is note",this.note);
-      console.log(Date);
+      // console.log(Date);
       
-      console.log("this is note",this.note.createdAt); 
+      // console.log("this is note",this.note.createdAt); 
       
   }
   onUpdate()

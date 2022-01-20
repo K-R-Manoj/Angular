@@ -137,8 +137,7 @@ export class DialogboxComponent implements OnInit {
     if(this.desccount)
     {
       this.count = this.desccount.nativeElement.value.length
-      console.log(this.count);
-      
+      // console.log(this.count);
     }
     
   }

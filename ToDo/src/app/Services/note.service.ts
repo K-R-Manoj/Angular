@@ -37,17 +37,17 @@ export class NoteService {
   search(value:string)
   {
     this.serachstring = value
-    console.log(this.serachstring);
+    // console.log(this.serachstring);
   }
   
   getNotes()
   {
-    console.log("Haii");
+    // console.log("Haii");
     
     this.http.get("http://localhost:3000/notes").subscribe((response)=>{
       this.Notes.push(response) 
 
-      console.log(response);
+      // console.log(response);
       
       this.noteslistChanged.next(this.Notes)
     })
@@ -61,7 +61,7 @@ export class NoteService {
     })
     this.getNotes()
     this.noteslistChanged.next(this.Notes)
-    console.log(this.Notes);
+    // console.log(this.Notes);
     
   }
 
@@ -73,7 +73,7 @@ export class NoteService {
     params = params.append('itemId', value);
     this.addtrashnote(value)
     return this.http.delete("http://localhost:3000/notes/"+value._id).subscribe((response)=>{
-      console.log(response);
+      // console.log(response);
     })
 
   }
@@ -86,10 +86,10 @@ export class NoteService {
   addtrashnote(value:any)
   {
     
-    console.log(value);
+    // console.log(value);
     
     this.http.post("http://localhost:3000/trash",value).subscribe((response)=>{
-      console.log(response);
+      // console.log(response);
       
     })
 
@@ -100,7 +100,7 @@ export class NoteService {
     this.http.get("http://localhost:3000/trash").subscribe((response)=>{
       this.TrashNotes.push(response) 
     })
-    console.log(this.TrashNotes);
+    // console.log(this.TrashNotes);
   }
 
   deleteTrashNote(value:any)
@@ -109,7 +109,7 @@ export class NoteService {
     params = params.append('itemId', value);
     this.addtrashnote(value)
     return this.http.delete("http://localhost:3000/trash/"+value._id).subscribe((response)=>{
-      console.log(response);
+      // console.log(response);
     })
   }
 

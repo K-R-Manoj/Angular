@@ -39,8 +39,8 @@ export class SortPipe implements PipeTransform {
       if(propname==='createdAt'&& sortType==='Oldest')
       {
         return value.sort((a:any,b:any)=>{
-          if(new Date(a[propname]) > new Date(b[propname]))
-          {
+          if(new Date(a[propname]).toLocaleString() > new Date(b[propname]).toLocaleString())
+          {     
             return 1;
           }
           else
@@ -52,8 +52,9 @@ export class SortPipe implements PipeTransform {
       if(propname==='createdAt'&& sortType==='Newest')
       {
         return value.sort((a:any,b:any)=>{
-          if(new Date((a[propname])).toLocaleString() < new Date(b[propname]).toLocaleString())
+          if(new Date(a[propname]).toLocaleString() < new Date(b[propname]).toLocaleString())
           {
+            
             return 1;
           }
           else

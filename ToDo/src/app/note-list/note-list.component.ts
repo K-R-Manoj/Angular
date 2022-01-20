@@ -33,7 +33,7 @@ export class NoteListComponent implements OnInit {
     
     this.noteService.getNotes()
     this.Notes = this.noteService.Notes
-    console.log("this is note list", this.Notes);
+    // console.log("this is note list", this.Notes);
     
     this.noteService.noteslistChanged.subscribe((value:any)=>{
       this.Notes = value
