@@ -61,12 +61,10 @@ export class DialogboxComponent implements OnInit {
     if(this.data.togglevalue==="ADD")
     {
       this.AddNotesForm = new FormGroup({
-        // 'ID':new FormControl( "hdajsdhasdhkhhkasdhkasd"),
         'Title':new FormControl(null, Validators.required),
         'Tag':new FormControl(null,Validators.required),
         'Description': new FormControl(null,[Validators.required,Validators.maxLength(250)]),
         'Color':new FormControl(null, Validators.required),
-        // 'CreatedAt':new FormControl( new Date())
       });
 
     }
@@ -76,10 +74,7 @@ export class DialogboxComponent implements OnInit {
     if(this.data.togglevalue === 'EDIT')
     {
       this.toggle = this.data.togglevalue
-      // console.log(this.toggle , this.data.notevalue);
-      // this.id = this.data.notevalue.ID;
       this.id = this.data.notevalue
-      // console.log(this.id._id);
       
       this.title = this.data.notevalue.Title;
       this.tag = this.data.notevalue.Tag;
@@ -108,12 +103,7 @@ export class DialogboxComponent implements OnInit {
 
   onAddNoteSubmit()  
   {
-    // console.log(this.Addfrom?.value);
-    // this.noteService.addNote(this.Addfrom?.value)
-
-    // console.log(this.AddNotesForm.value);
     this.noteService.addNote(this.AddNotesForm.value)
-    
   }
 
   onUpdateNoteSubmit()
@@ -132,7 +122,6 @@ export class DialogboxComponent implements OnInit {
       console.log(response);
       this.noteService.getNotes()   
     })
-    // this.noteService.getNotes()
   }
 
   onDelete()

@@ -2,7 +2,6 @@
     <div class="content">
         <div fxLayout="row wrap" fxLayoutGap="16px grid">
             <div fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let note of TrashNotes[0]  | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype" >
-            <!-- content -->
             <app-trash-note  [Tnote]="note"></app-trash-note>
             </div>
         </div>

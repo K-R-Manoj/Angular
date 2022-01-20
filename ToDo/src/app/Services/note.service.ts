@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { Note } from '../Models/NoteModel/note';
 
 
 interface ResultNote
@@ -43,8 +42,13 @@ export class NoteService {
   
   getNotes()
   {
+    console.log("Haii");
+    
     this.http.get("http://localhost:3000/notes").subscribe((response)=>{
       this.Notes.push(response) 
+
+      console.log(response);
+      
       this.noteslistChanged.next(this.Notes)
     })
   }
@@ -53,12 +57,9 @@ export class NoteService {
 
   addNote(value:any)
   {
-    this.http.post("http://localhost:3000/notes", value).subscribe((response:any)=>{
-        console.log("this is add note response",response);
-        // console.log(response);      
+    this.http.post("http://localhost:3000/notes", value).subscribe((response:any)=>{  
     })
     this.getNotes()
-    // this.noteslistChanged.next(this.getNotes())
     this.noteslistChanged.next(this.Notes)
     console.log(this.Notes);
     
