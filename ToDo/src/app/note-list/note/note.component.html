@@ -1,6 +1,6 @@
  <div *ngIf="note;else nonote" class="note">
     <mat-card [ngClass]="'card'" [ngStyle]="{backgroundColor:note?.Color}" >
-        <div class="icons">
+        <div class="icons" align="end">
             <mat-icon  (click)="onDelete()">delete</mat-icon>
             <mat-icon (click)="onUpdate()">edit</mat-icon>
         </div>

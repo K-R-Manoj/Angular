@@ -5,8 +5,8 @@
 
 .icons
 {
-    display: flex;
-    justify-content:end;
+    /* display: flex;
+    justify-content:end; */
     opacity: 0;
 }
 
