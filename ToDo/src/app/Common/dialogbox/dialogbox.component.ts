@@ -89,18 +89,6 @@ export class DialogboxComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-  GenerateRandomId()
-  {
-    return '_' + Math.random().toString(36).substr(2, 9);
-  }
-  
-
   onAddNoteSubmit()  
   {
     this.noteService.addNote(this.AddNotesForm.value)
@@ -133,13 +121,10 @@ export class DialogboxComponent implements OnInit {
 
   charCount()
   {
-
     if(this.desccount)
     {
       this.count = this.desccount.nativeElement.value.length
-      // console.log(this.count);
-    }
-    
+    } 
   }
 
 

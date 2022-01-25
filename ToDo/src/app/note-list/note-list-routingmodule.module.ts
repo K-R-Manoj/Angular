@@ -5,9 +5,7 @@ import { NoteListComponent } from './note-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-
-    component: NoteListComponent,
+    path: '',component: NoteListComponent,
   },
 ];
 

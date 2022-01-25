@@ -7,9 +7,7 @@ import { TrashNoteListComponent } from './trash-note-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-
-    component: TrashNoteListComponent,
+    path: '', component: TrashNoteListComponent,
   },
 ];
 

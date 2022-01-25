@@ -2,19 +2,6 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
 
-
-interface ResultNote
-{
-  _id:string;
-  Title:string;
-  Tag:string;
-  Description:string;
-  Color:string;
-  createdAt:string;
-}
-
-
-
 @Injectable({
   providedIn: 'root'
 })
