@@ -106,9 +106,9 @@ export class DialogboxComponent implements OnInit {
  
     console.log(upnote.ID);
     
-    this.noteService.updateNote(upnote).subscribe((response:any)=>{
-      console.log(response);
-      this.noteService.getNotes()   
+    this.noteService.updateNote(upnote).subscribe((response)=>{
+      // console.log(response.);
+        this.noteService.getNotes()   
     })
   }
 

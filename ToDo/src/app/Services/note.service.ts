@@ -34,7 +34,7 @@ export class NoteService {
     this.http.get("http://localhost:3000/notes").subscribe((response)=>{
       this.Notes.push(response) 
 
-      // console.log(response);
+      console.log(response);
       
       this.noteslistChanged.next(this.Notes)
     })
@@ -59,16 +59,21 @@ export class NoteService {
     let params = new HttpParams();
     params = params.append('itemId', value);
     this.addtrashnote(value)
+    console.log(value);
+    
     return this.http.delete("http://localhost:3000/notes/"+value._id).subscribe((response)=>{
-      // console.log(response);
+      console.log(response);
     })
 
   }
 
   updateNote(value:any)
   {
+   
     return this.http.patch("http://localhost:3000/notes", value)
+    
   }
+  
   
   addtrashnote(value:any)
   {
@@ -86,17 +91,17 @@ export class NoteService {
   {
     this.http.get("http://localhost:3000/trash").subscribe((response)=>{
       this.TrashNotes.push(response) 
+      // console.log(response);
+      
     })
-    // console.log(this.TrashNotes);
   }
 
   deleteTrashNote(value:any)
   {
     let params = new HttpParams();
     params = params.append('itemId', value);
-    this.addtrashnote(value)
     return this.http.delete("http://localhost:3000/trash/"+value._id).subscribe((response)=>{
-      // console.log(response);
+      console.log(response);
     })
   }
 
