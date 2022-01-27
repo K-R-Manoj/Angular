@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ReciveNotes } from '../Models/recive-notes';
 
 @Pipe({
   name: 'search',
@@ -6,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value: any, filtredString:string): any {
+  transform(value: ReciveNotes[], filtredString:string): any {
 
     if(value)
     {

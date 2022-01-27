@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Inject, ElementRef} from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Note } from 'src/app/Models/NoteModel/note';
+import { Note } from '../../Common/Models/NoteModel/note';
 import { NoteService } from 'src/app/Services/note.service';
 
 interface Tag {
@@ -66,16 +66,13 @@ export class DialogboxComponent implements OnInit {
         'Description': new FormControl(null,[Validators.required,Validators.maxLength(250)]),
         'Color':new FormControl(null, Validators.required),
       });
-
     }
 
-   
     
     if(this.data.togglevalue === 'EDIT')
     {
       this.toggle = this.data.togglevalue
-      this.id = this.data.notevalue
-      
+      this.id = this.data.notevalue 
       this.title = this.data.notevalue.Title;
       this.tag = this.data.notevalue.Tag;
       this.desc = this.data.notevalue.Description;
@@ -85,7 +82,6 @@ export class DialogboxComponent implements OnInit {
     {
       this.toggle = this.data.togglevalue
     }
-  
   }
 
 
@@ -103,9 +99,7 @@ export class DialogboxComponent implements OnInit {
       Description:this.Updatefrom?.value.Description,
       Color:this.Updatefrom?.value.Color,
     }
- 
-    console.log(upnote.ID);
-    
+    // console.log(upnote.ID);
     this.noteService.updateNote(upnote).subscribe((response)=>{
       // console.log(response.);
         this.noteService.getNotes()   
@@ -116,7 +110,6 @@ export class DialogboxComponent implements OnInit {
   {
     const ID:string =this.id._id
     this.noteService.deleteNote(ID)
-    
   }
 
   charCount()

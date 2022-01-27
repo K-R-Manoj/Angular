@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { ReciveNotes } from '../Models/recive-notes';
+import { Note } from '../Common/Models/NoteModel/note';
+import { ReciveNotes } from '../Common/Models/recive-notes';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,7 @@ export class NoteService {
     })
   }
 
-  addNote(value:any)
+  addNote(value:Note)
   {
     this.http.post("http://localhost:3000/notes", value).subscribe((response:any)=>{  
     })
@@ -49,7 +50,7 @@ export class NoteService {
     
   }
 
-  updateNote(value:any)
+  updateNote(value:Note)
   {
     return this.http.patch("http://localhost:3000/notes", value)
   }
@@ -80,7 +81,7 @@ export class NoteService {
     })
   }
 
-  addtrashnote(value:any)
+  addtrashnote(value:ReciveNotes)
   {
     // console.log(value);
     this.http.post("http://localhost:3000/trash",value).subscribe((response)=>{
@@ -100,7 +101,7 @@ export class NoteService {
     this.noteslistChanged.next(this.TrashNotes)
   }
 
-  RetriveTrashNotetoNote(value:any)
+  RetriveTrashNotetoNote(value:ReciveNotes)
   {
     this.deleteTrashNote(value)
     this.addNote(value)

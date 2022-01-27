@@ -5,5 +5,5 @@ export class ReciveNotes {
     public  Tag         :   string  |any;
     public  Description :   string  |any;
     public  Color       :   string  |any;
-    public  createdAt   :   Date  |any;
+    public  createdAt   :   Date    |any;
 }

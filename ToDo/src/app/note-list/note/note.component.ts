@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 
-import { DialogboxComponent } from 'src/app/Common/dialogbox/dialogbox.component';
-import { Note } from 'src/app/Models/NoteModel/note';
+import { DialogboxComponent } from 'src/app/note-list/dialogbox/dialogbox.component';
+import { Note } from 'src/app/Common/Models/NoteModel/note';
 import { NoteService } from 'src/app/Services/note.service';
 
 
