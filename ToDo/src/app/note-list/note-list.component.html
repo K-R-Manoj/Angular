@@ -1,6 +1,6 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="35%"  *ngFor="let note of Notes[0] | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype"> 
+        <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="35%"  *ngFor="let note of Notes | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype"> 
         <app-note [note]="note"></app-note> 
          </div>
     </div>

@@ -19,7 +19,10 @@ export class TrashNoteListComponent implements OnInit {
       this.TrashNotes = this.noteService.TrashNotes
 
       
-      
+      this.noteService.noteslistChanged.subscribe((value:any)=>{
+        this.TrashNotes = value
+        
+      })
 
   }
 
