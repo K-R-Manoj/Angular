@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {NoteListModule} from './note-list/note-list.module';
-import {TrashNoteListModule} from './trash-note-list/trash-note-list.module';
-import {SharedModule} from './Common/Pipes/shared.module';
+import {NoteListModule} from './Modules/note-list/note-list.module';
+import {TrashNoteListModule} from './Modules/trash-note-list/trash-note-list.module';
+import {SharedModule} from './Shared/Pipes/shared.module';
 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
@@ -18,15 +18,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { CustomErrorComponent } from './Shared/Components/custom-error/custom-error.component';
+import { HomeModule } from './Modules/home/home.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    CustomErrorComponent,
   
+   
   ],
   imports: [
     BrowserModule,
@@ -35,21 +36,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
 
-    NoteListModule,
-    TrashNoteListModule,
-    SharedModule,
+    // NoteListModule,
+    // TrashNoteListModule,
+    // SharedModule,
+    HomeModule,
 
 
-    MatDividerModule,
-    MatIconModule,
-    MatListModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatToolbarModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
-    FormsModule,
+    // MatDividerModule,
+    // MatIconModule,
+    // MatListModule,
+    // MatMenuModule,
+    // MatSidenavModule,
+    // MatButtonModule,
+    // MatToolbarModule,
+    // FlexLayoutModule,
+    // ReactiveFormsModule,
+    // FormsModule,
     
   ],
   providers: [],

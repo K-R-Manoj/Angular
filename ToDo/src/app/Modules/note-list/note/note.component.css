@@ -1,0 +1,27 @@
+.card
+{
+    margin: 3% ;
+}
+
+.icons
+{
+    /* display: flex;
+    justify-content:end; */
+    opacity: 0;  
+}
+
+.icons mat-icon
+{
+    cursor: pointer;
+}
+
+.note:hover .icons
+{
+    opacity: 1;
+}
+
+@media screen and (max-width: 1280px) and (min-width: 280px){
+    .icons {
+        opacity: 1!important;
+    }
+}
