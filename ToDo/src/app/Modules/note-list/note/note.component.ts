@@ -30,6 +30,8 @@ export class NoteComponent implements OnInit {
   onUpdate()
   { 
    this.dialog.open(DialogboxComponent,{data:{togglevalue:'EDIT', notevalue:this.note}});  
+   console.log(this.note);
+   
   }
 
   onDelete()

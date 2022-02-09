@@ -28,19 +28,30 @@ export class LoginComponent implements OnInit {
     if(code)
     {
       const params = {
-        customerName:'',
         code,
       };
-      
+
       this.authService.intermediateServerLogin(params).subscribe((res:any)=>{
         console.log(res);
         const loginInfo = {...res};
         console.log("this is loginInfo", loginInfo);
+        if(loginInfo.userDetails.body.error==='invalid_token')
+        {
+          this.authService.logout()
+        }
+        else
+        {
+
+          this.router.navigateByUrl('home')
+        }
       },
-      ()=>{
-        this.authService.logout()
-      });
-      this.router.navigateByUrl('home')
+      // ()=>{
+      //   this.authService.logout()
+      // }
+      );
+
+      // console.log(code);
+      
     }
     else
     {

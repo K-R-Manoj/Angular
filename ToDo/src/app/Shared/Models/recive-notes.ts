@@ -6,4 +6,5 @@ export class ReciveNotes {
     public  Description :   string  |any;
     public  Color       :   string  |any;
     public  createdAt   :   Date    |any;
+    public  Time        :   number  |any;
 }

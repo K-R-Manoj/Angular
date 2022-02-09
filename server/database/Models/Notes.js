@@ -14,7 +14,10 @@ const notelistschema = new mongoose.Schema({
     createdAt:{
         type:Date,
         default:new Date()
-    }
+    }, 
+    Time:{
+        type:Number
+    },
 })
 
 const NoteList  = new mongoose.model("Noteslist", notelistschema);

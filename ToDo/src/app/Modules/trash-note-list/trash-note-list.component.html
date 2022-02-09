@@ -1,12 +1,11 @@
 <div class="trashbody" >
     <div class="content">
-        <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxLayout="row wrap" fxLayoutGap="grid">
             <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let note of TrashNotes  | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype" >
             <app-trash-note  [Tnote]="note"></app-trash-note>
             </div>
         </div>
     </div>
-
     <!-- <div *ngIf="TrashNotes[0].length===0">
         <h1>Nothing to display in Trash</h1>
     </div> -->

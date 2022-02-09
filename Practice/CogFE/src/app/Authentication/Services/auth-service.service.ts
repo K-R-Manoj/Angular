@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class AuthServiceService {
 
   constructor(private http:HttpClient) { 
-     
   }
 
   private constructQueryParam(query: { [key: string]: any }) {
@@ -30,7 +29,8 @@ export class AuthServiceService {
     console.log("logout clicked");
     const authorizationParams = await this.getAuthorizationParams();
     console.log(authorizationParams);
-    // window.location.href = `https://todo-app-users.auth.us-east-1.amazoncognito.com/logout?${this.constructQueryParam(authorizationParams)}`;
+    localStorage.removeItem("Session User");
+    window.location.href = `https://todo-app-users.auth.us-east-1.amazoncognito.com/logout?${this.constructQueryParam(authorizationParams)}`;
      
   }
 
@@ -38,6 +38,7 @@ export class AuthServiceService {
     return {
       client_id: '30qr4s2bfme2sv2lda73c3f0vh',
       response_type: 'code',
+      scope: (['email', 'openid', 'profile', 'aws.cognito.signin.user.admin']).join('+'), //After added scope to get custom attribute, you need to give permission App client in Attribute read and write permissions(edit the permission)
       redirect_uri: 'http://localhost:4200/callback'
     };
   }
@@ -53,4 +54,6 @@ export class AuthServiceService {
   {
     return this.http.post('http://localhost:5000/authenticate',params)
   }
+
+  
 }

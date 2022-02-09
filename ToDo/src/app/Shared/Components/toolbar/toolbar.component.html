@@ -1,0 +1,56 @@
+<mat-toolbar  color="primary">
+  <!-- <mat-toolbar-row>
+
+        <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="onToggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+    
+        <div class="logo">
+            <img src="../../assets/Images/TD.png" alt="#ToDo's">
+        </div>&nbsp;
+        <span>TODO's</span>
+
+            <span class="example-spacer"></span>
+            <div class="sort">
+                <button mat-mini-fab color="primary" [matMenuTriggerFor]="Sort" class="sorticon" matTooltip="Sort"><mat-icon>settings</mat-icon></button>
+                <mat-menu #Sort="matMenu">
+                    <button mat-menu-item [matMenuTriggerFor]="Title"><mat-icon>sort_by_alpha</mat-icon>Title</button>
+                    <button mat-menu-item [matMenuTriggerFor]="TimeOrder"><mat-icon>access_time</mat-icon>Time</button>
+                </mat-menu>
+                
+                <mat-menu #Title="matMenu">
+                    <button mat-menu-item (click)="sortTitle('A-Z')">A-Z</button>
+                    <button mat-menu-item (click)="sortTitle('Z-A')">Z-A</button>
+                </mat-menu>
+                
+                <mat-menu #TimeOrder="matMenu">
+                    <button mat-menu-item (click)="sortTime('Oldest')">Oldest</button>
+                    <button mat-menu-item (click)="sortTime('Newest')">Latest</button>
+                </mat-menu>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="logout">
+                <button mat-mini-fab class="logouticon" [matMenuTriggerFor]="userDetails" color="primary" matTooltip="Logout">{{userProfileIcon|uppercase}}</button>
+                <mat-menu #userDetails="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>person</mat-icon>
+                        <span>{{UserName|uppercase}}</span>
+                    </button>
+                    <button mat-menu-item >
+                        <mat-icon>email</mat-icon>
+                        <span>{{user}}</span>
+                    </button>
+                    <mat-divider></mat-divider>
+                    <button mat-menu-item (click)="onLogOut()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Logout</span>
+                    </button>
+                </mat-menu>
+            </div>
+                   
+    </mat-toolbar-row> -->
+</mat-toolbar>

@@ -4,6 +4,7 @@ export class Note {
     public  Tag         :   string  |   undefined;
     public  Description :   string  |   undefined;
     public  Color       :   string  |   undefined;
+    public  Time        :   number  |   undefined;
 
 
 }

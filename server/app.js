@@ -34,7 +34,8 @@ app.post('/notes',(req,res)=>{
         Title:req.body.Title,
         Tag:req.body.Tag,
         Description:req.body.Description,
-        Color:req.body.Color
+        Color:req.body.Color,
+        Time:req.body.Time,
     })
     note.save()
     .then((list)=>{
@@ -46,7 +47,7 @@ app.post('/notes',(req,res)=>{
 })
 
 app.patch('/notes',(req,res)=>{
-    NoteList.updateOne({_id:req.body.ID},{Title:req.body.Title,Tag:req.body.Tag,Description:req.body.Description,Color:req.body.Color})
+    NoteList.updateOne({_id:req.body.ID},{Title:req.body.Title,Tag:req.body.Tag,Description:req.body.Description,Color:req.body.Color, Time:req.body.Time})
         .then((lists)=>{res.send({message:"successfully updated the Note in DataBase ", lists})})
         .catch((error)=>{res.send({message:"Error!!! updateing the Note Failed: ", error})})
 })
@@ -75,7 +76,8 @@ app.post('/trash',(req,res)=>{
         Title:req.body.Title,
         Tag:req.body.Tag,
         Description:req.body.Description,
-        Color:req.body.Color
+        Color:req.body.Color,
+        Time:req.body.Time
     })
     trashnote.save()
     .then((list)=>{

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {NoteListModule} from './Modules/note-list/note-list.module';
 import {TrashNoteListModule} from './Modules/trash-note-list/trash-note-list.module';
-import {SharedModule} from './Shared/Pipes/shared.module';
+import {SharedModule} from './Shared/shared.module';
 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
@@ -20,12 +20,16 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomErrorComponent } from './Shared/Components/custom-error/custom-error.component';
 import { HomeModule } from './Modules/home/home.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationRoutingModule } from './authentication/authentication-routing.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomErrorComponent,
+
+    // CustomErrorComponent,
   
    
   ],
@@ -35,6 +39,9 @@ import { HomeModule } from './Modules/home/home.module';
 
     BrowserAnimationsModule,
     HttpClientModule,
+    AuthenticationModule,
+    AuthenticationRoutingModule,
+
 
     // NoteListModule,
     // TrashNoteListModule,

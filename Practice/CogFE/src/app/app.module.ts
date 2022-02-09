@@ -10,12 +10,21 @@ import { LoginComponent } from './Authentication/Pages/login/login.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationRoutingModule } from './Authentication/Authentication Routing/authentication-routing.module';
+import { AuthGaurdServiceService } from './Core/Services/Access/auth-gaurd-service.service';
+import { SidebarComponent } from './Components/sidebar/sidebar.component';
+import { ToolbarComponent } from './Components/toolbar/toolbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    LoginComponent
+    LoginComponent,
+    SidebarComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +35,13 @@ import { AuthenticationRoutingModule } from './Authentication/Authentication Rou
     MatProgressSpinnerModule,
 
     BrowserAnimationsModule,
+
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
-  providers: [],
+  providers: [AuthGaurdServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

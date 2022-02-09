@@ -37,10 +37,10 @@ export class SortPipe implements PipeTransform {
        })
      }
       
-      if(propname==='createdAt'&& sortType==='Oldest')
+      if(propname==='Time'&& sortType==='Oldest')
       {
         return value.sort((a:ReciveNotes,b:ReciveNotes)=>{
-          if(new Date(a[propname]).toLocaleString() > new Date(b[propname]).toLocaleString())
+          if(new Date(a[propname]) > new Date(b[propname]))
           {     
             return 1;
           }
@@ -50,10 +50,10 @@ export class SortPipe implements PipeTransform {
           }
         })
       }
-      if(propname==='createdAt'&& sortType==='Newest')
+      if(propname==='Time'&& sortType==='Newest')
       {
         return value.sort((a:ReciveNotes,b:ReciveNotes)=>{
-          if(new Date(a[propname]).toLocaleString() < new Date(b[propname]).toLocaleString())
+          if(new Date(a[propname]) < new Date(b[propname]))
           {
             return 1;
           }

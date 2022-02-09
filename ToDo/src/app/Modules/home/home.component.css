@@ -4,6 +4,7 @@
   
 .sidenav {
 width: 200px;
+background: #3f51b5 ;
 }
 
 .sidenav .mat-toolbar {
@@ -49,20 +50,22 @@ text-align: center;
 {
     background-color: #3f51b5 !important;
     color: white;
+    cursor: pointer;
 }
-mat-sidenav
-{
-    background-color: #3f51b5 ;
-}
-mat-sidenav mat-nav-list a
 
+/* mat-sidenav mat-nav-list a
 {
     font-size: 25px;
     color: white;
+} */
+.sidenavlist
+{
+    color: white;
 }
 .active
-{text-decoration: underline;
-    
+{
+    text-decoration: underline;
+    color: white;
 }
 
 .left
@@ -76,3 +79,20 @@ mat-sidenav mat-nav-list a
     width: 50px;
     cursor: pointer;
 }
+/* .logouticon , .sorticon
+{
+    display: none !important;
+} */
+
+/* @media screen and (max-width: 1280px) and (min-width: 150px){
+    .logouttext, .sorttext
+    {
+        display: none !important;
+    }
+    .logouticon,.sorticon
+    {
+        display: block !important;
+        cursor: pointer;
+    }
+} */
+

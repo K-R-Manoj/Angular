@@ -2,8 +2,9 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
-import { Note } from '../../Shared/Models/NoteModel/note';
-import { ReciveNotes } from '../../Shared/Models/recive-notes';
+import { Note } from 'src/app/Shared/Models/NoteModel/note';
+import { ReciveNotes } from 'src/app/Shared/Models/recive-notes';
+
 
 @Injectable({
   providedIn: 'root'

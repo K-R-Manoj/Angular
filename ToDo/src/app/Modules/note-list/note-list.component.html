@@ -1,5 +1,5 @@
 <div class="content">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxLayout="row wrap" fxLayoutGap="grid">
         <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="49.5%"  *ngFor="let note of Notes | search:this.noteService.serachstring | sort:this.noteService.sortItem:this.noteService.sorttype"> 
         <app-note [note]="note"></app-note> 
          </div>
@@ -12,7 +12,7 @@
         <div class="example-flex-container">
             <div class="example-button-container">
                 <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="onAddNote()">
-                    <mat-icon>add</mat-icon>
+                    <mat-icon matTooltip="Add New Note" matTooltipClass="example-tooltip">add</mat-icon>
                 </button>
             </div>
         </div>

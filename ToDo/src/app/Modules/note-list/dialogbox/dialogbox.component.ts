@@ -48,7 +48,6 @@ export class DialogboxComponent implements OnInit {
   desc:string|undefined;
   color:string|undefined;
   id:any;
-  time:string|undefined;
   count:number=0;
 
 
@@ -57,7 +56,6 @@ export class DialogboxComponent implements OnInit {
   constructor(private noteService :NoteService, @Inject(MAT_DIALOG_DATA) public data: {togglevalue: string , notevalue:Note}) { }
 
   ngOnInit(): void {
-
     if(this.data.togglevalue==="ADD")
     {
       this.AddNotesForm = new FormGroup({
@@ -65,6 +63,7 @@ export class DialogboxComponent implements OnInit {
         'Tag':new FormControl(null,Validators.required),
         'Description': new FormControl(null,[Validators.required,Validators.maxLength(250)]),
         'Color':new FormControl(null, Validators.required),
+        'Time':new FormControl(Date.now())
       });
     }
 
@@ -98,6 +97,7 @@ export class DialogboxComponent implements OnInit {
       Tag:this.Updatefrom?.value.Tag,
       Description:this.Updatefrom?.value.Description,
       Color:this.Updatefrom?.value.Color,
+      Time:Date.now()
     }
     // console.log(upnote.ID);
     this.noteService.updateNote(upnote).subscribe((response)=>{

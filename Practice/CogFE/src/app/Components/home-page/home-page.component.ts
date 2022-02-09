@@ -11,6 +11,7 @@ export class HomePageComponent implements OnInit {
   constructor(private authService:AuthServiceService) { }
 
   ngOnInit(): void {
+    
   }
 
   public logout() {

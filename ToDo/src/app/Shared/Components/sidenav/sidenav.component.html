@@ -1,0 +1,22 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <h1>Something</h1>
+        <mat-toolbar class="sidenavbarres" (click)="drawer.toggle()">   
+            <mat-icon matTooltip="Back">arrow_back</mat-icon>&nbsp;&nbsp;<span>Menu</span>
+        </mat-toolbar>
+        <mat-nav-list>
+            <!-- <a mat-list-item (click)="OnNotes()" routerLinkActive="active">Notes</a> -->
+            <!-- <a mat-list-item (click)="OnTrash()" routerLinkActive="active">Trash</a> -->
+            <a mat-list-item routerLink="Notes"  routerLinkActive="active"><h1 class="sidenavlist">Notes</h1></a>
+            <a mat-list-item routerLink="Trash" routerLinkActive="active"><h1 class="sidenavlist">Trash</h1></a>
+
+        </mat-nav-list>
+    </mat-drawer>
+    
+    
+    <div class="example-sidenav-content">
+       <app-toolbar (toggleValue)="changeInToggle($event , drawer)"></app-toolbar>
+     <ng-content></ng-content>
+    </div>
+  
+</mat-drawer-container>

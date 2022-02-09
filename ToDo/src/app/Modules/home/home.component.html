@@ -62,14 +62,14 @@
   
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" >
-            <mat-toolbar class="sidenavbarres">   
-                <span>Menu</span>
+            <mat-toolbar class="sidenavbarres" (click)="drawer.toggle()">   
+                <mat-icon matTooltip="Back">arrow_back</mat-icon>&nbsp;&nbsp;<span>Menu</span>
             </mat-toolbar>
             <mat-nav-list>
                 <!-- <a mat-list-item (click)="OnNotes()" routerLinkActive="active">Notes</a> -->
                 <!-- <a mat-list-item (click)="OnTrash()" routerLinkActive="active">Trash</a> -->
-                <a mat-list-item routerLink="Notes" routerLinkActive="active">Notes</a>
-                <a mat-list-item routerLink="Trash" routerLinkActive="active">Trash</a>
+                <a mat-list-item routerLink="Notes"  routerLinkActive="active"><h1 class="sidenavlist">Notes</h1></a>
+                <a mat-list-item routerLink="Trash" routerLinkActive="active"><h1 class="sidenavlist">Trash</h1></a>
 
             </mat-nav-list>
     </mat-sidenav>
@@ -87,35 +87,58 @@
             
                 <div class="logo">
                     <img src="../../assets/Images/TD.png" alt="#ToDo's">
-                </div>
+                </div>&nbsp;
                 <span>TODO's</span>
-                
-                <span class="example-spacer"></span>
-                    <div class="sort" align="end">
-                            
-                            <button mat-button [matMenuTriggerFor]="animals">Sort Notes<mat-icon>keyboard_arrow_down</mat-icon></button>
-                            <mat-menu #animals="matMenu">
-                                <button mat-menu-item [matMenuTriggerFor]="Title">Title</button>
-                                <button mat-menu-item [matMenuTriggerFor]="TimeOrder">Time</button>
-                            </mat-menu>
-                            
-                            <mat-menu #Title="matMenu">
-                                <button mat-menu-item (click)="sortTitle('A-Z')">A-Z</button>
-                                <button mat-menu-item (click)="sortTitle('Z-A')">Z-A</button>
-                            </mat-menu>
-                            
-                            <mat-menu #TimeOrder="matMenu">
-                                <button mat-menu-item (click)="sortTime('Oldest')">Oldest</button>
-                                <button mat-menu-item (click)="sortTime('Newest')">Latest</button>
-                            </mat-menu>
-                        </div>
+
+                    <span class="example-spacer"></span>
+                    <div class="sort">
+                        <button mat-mini-fab color="primary" [matMenuTriggerFor]="Sort" class="sorticon" matTooltip="Sort"><mat-icon>settings</mat-icon></button>
+                        <!-- <mat-icon [matMenuTriggerFor]="Sort" class="sorticon" matTooltip="Sort">filter_alt</mat-icon>    -->
+                        <!-- <button mat-button [matMenuTriggerFor]="Sort" class="sorttext">Sort Notes<mat-icon>keyboard_arrow_down</mat-icon></button> -->
+                        <mat-menu #Sort="matMenu">
+                            <button mat-menu-item [matMenuTriggerFor]="Title"><mat-icon>sort_by_alpha</mat-icon>Title</button>
+                            <button mat-menu-item [matMenuTriggerFor]="TimeOrder"><mat-icon>access_time</mat-icon>Time</button>
+                        </mat-menu>
                         
-                 
+                        <mat-menu #Title="matMenu">
+                            <button mat-menu-item (click)="sortTitle('A-Z')">A-Z</button>
+                            <button mat-menu-item (click)="sortTitle('Z-A')">Z-A</button>
+                        </mat-menu>
+                        
+                        <mat-menu #TimeOrder="matMenu">
+                            <button mat-menu-item (click)="sortTime('Oldest')">Oldest</button>
+                            <button mat-menu-item (click)="sortTime('Newest')">Latest</button>
+                        </mat-menu>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;
+                    <div class="logout">
+                        <!-- <button mat-button class="logouttext" (click)="onLogOut()">LogOut</button> -->
+                        <button mat-mini-fab class="logouticon" [matMenuTriggerFor]="userDetails" color="primary" matTooltip="Logout">{{userProfileIcon|uppercase}}</button>
+                        <mat-menu #userDetails="matMenu">
+                            <button mat-menu-item>
+                                <mat-icon>person</mat-icon>
+                                <span>{{UserName|uppercase}}</span>
+                            </button>
+                            <button mat-menu-item >
+                                <mat-icon>email</mat-icon>
+                                <span>{{user}}</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item (click)="onLogOut()">
+                                <mat-icon>logout</mat-icon>
+                                <span>Logout</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                           
             </mat-toolbar-row>
       </mat-toolbar>
+
         <div class="something">
-            <input type="text" placeholder="Search Notes" (keyup)="this.noteservice.search(filtredStatus)" [(ngModel)]="filtredStatus">
+          <input type="text" align="start" placeholder="Search Notes" (keyup)="this.noteservice.search(filtredStatus)" [(ngModel)]="filtredStatus">
         </div>
+
       <router-outlet></router-outlet>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
